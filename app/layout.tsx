@@ -7,6 +7,7 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs'
+import { Toaster } from "@/components/ui/sonner"
 import './globals.css'
 import { Inter } from "next/font/google";
 
@@ -41,6 +42,7 @@ export default function RootLayout({
               </SignedIn>
             </header>
           {children}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

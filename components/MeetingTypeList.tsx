@@ -27,6 +27,7 @@ const MeetingTypeList = () => {
       try{
         if(!values.dateTime){
           toast("Please select a date and a time.")
+          return;
         }
 
         const id = crypto.randomUUID();
@@ -52,6 +53,7 @@ const MeetingTypeList = () => {
         if(!values.description){
           router.push(`/meeting/${call.id}`)
         }
+        toast("Meeting Created.")
       }catch(error){
         console.log(error);
         toast(

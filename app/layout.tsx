@@ -7,6 +7,7 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs'
+// import '@stream-io/video-react-sdk/dist/css/style.css';
 import { Toaster } from "@/components/ui/sonner"
 import './globals.css'
 import { Inter } from "next/font/google";
@@ -17,7 +18,6 @@ export const metadata: Metadata = {
   title: "Meezio App",
   description: "Creating Online Video Meeting App using Nextjs",
 };
-
 
 export default function RootLayout({
   children,

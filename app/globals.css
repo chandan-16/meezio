@@ -118,17 +118,6 @@
   background-color: #1c1f2e;
 }
 
-/* .bg-hero {
-  background-image: url('/images/hero-background.png');
-  background-image: url('/images/hero-background.png');
-   background-size: cover;
-   background-position: center;
-   background-repeat: no-repeat;
-   height: 400px;
-    display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 
 /* ======== stream css overrides ======== */
 .str-video__call-stats {
@@ -253,3 +242,14 @@
   background-position: center;
 }
 
+/* .bg-hero {
+  background-image: url('/images/hero-background.png');
+  background-image: url('/images/hero-background.png');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   height: 400px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+} */

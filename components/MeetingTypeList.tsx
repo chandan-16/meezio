@@ -6,6 +6,8 @@ import MeetingModal from "./MeetingModal"
 import { useUser } from "@clerk/nextjs"
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk"
 import { toast } from "sonner"
+import { Textarea } from "./ui/textarea"
+import ReactDatePicker from 'react-datepicker';
 
 const MeetingTypeList = () => {
     const router = useRouter()
@@ -62,6 +64,10 @@ const MeetingTypeList = () => {
       }
     }
 
+
+    // BelowLink is not accepting 
+    const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}`
+
     // const createMeeting = async () => {
     //   if(!client || !user) return;
     //   const id = crypto.randomUUID();
@@ -103,7 +109,25 @@ const MeetingTypeList = () => {
           onClose={() => setMeetingState(undefined)}
           title="Create Meeting"
           handleClick={createMeeting}>
+            <div className="flex flex-col gap-2.5">
+              <label htmlFor="" className="text-base text-normal leading-[22px] text-sky-200">Add a description</label>
+              <Textarea 
+              className="border-none bg-gray-400 focus-visible:ring-0 focus-visible:ring-offset-0"  
+              onChange={(e) =>{setValues({...values, description: e.target.value})}}
+              />
+            </div>
             
+            <div className="flex w-full flex-col gap-2.5">
+              <label htmlFor="" className="text-base text-normal leading-[22px] text-sky-200">Select Date & Time</label>  
+              <ReactDatePicker 
+              selected={values.dateTime} 
+              onChange={(date) => setValues({...values, dateTime: date!})} 
+              showTimeSelect timeFormat="HH:mm:" 
+              timeIntervals={15} timeCaption="time"
+              dateFormat="MMMM d, yyyy h:mm aa"
+              className="w-full rounded bg-gray-400 p-2 focus:outline-none "
+              />            
+            </div>
           </MeetingModal>
         ) : <MeetingModal 
           isOpen={meetingState === 'isScheduleMeeting'} 
@@ -111,8 +135,8 @@ const MeetingTypeList = () => {
           title="Meeting Created"
           className="text-center"
           handleClick={() => {
-            // navigator.clipboard.writeText(meetingLink);
-            // toast({title : 'Link Copied.'})
+            navigator.clipboard.writeText(meetingLink);
+            toast('Link Copied.')
           }}
           image="/icons/checked.svg"
           buttonIcon="/icons/copy.svg"

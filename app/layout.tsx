@@ -1,4 +1,4 @@
-import { type Metadata } from 'next'
+// import { type Metadata } from 'next'
 import {
   ClerkProvider,
   SignInButton,
@@ -14,10 +14,11 @@ import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Meezio App",
-  description: "Creating Online Video Meeting App using Nextjs",
-};
+// export const metadata: Metadata = {
+//   title: "Meezio App",
+//   description: "Video Calling App ",
+//   icons: '/icons/logo.svg'
+// };
 
 export default function RootLayout({
   children,
@@ -27,7 +28,7 @@ export default function RootLayout({
   return (
     <ClerkProvider appearance={{ layout: { logoImageUrl : '/icons/yoom-logo.svg', socialButtonsVariant : 'iconButton' }, variables: {colorText : '#fff', colorPrimary : '#0E78F9', colorBackground : '#1c1f2e', colorInputBackground : '#252a41', colorInput : '#ffff' } }}>
       <html lang="en">
-        <body style={{backgroundColor : '#000', color : 'white'}} className={`${inter.className} bg-gray-950`}>
+        <body className={`${inter.className} bg-gray-950`}>
             <header className="flex justify-end items-center p-4 gap-4 h-16">
               <SignedOut>
                 <SignInButton />

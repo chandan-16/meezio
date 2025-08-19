@@ -1,8 +1,25 @@
-import React from 'react'
+"use client";
+
+import { useCall, useCallStateHooks } from '@stream-io/video-react-sdk'
+import { Button } from './ui/button';
+import { useRouter } from 'next/router';
 
 const EndCallButton = () => {
+
+  const call = useCall();
+  const router = useRouter()
+;  const { useLocalParticipant } = useCallStateHooks();
+  const LocalParticipant = useLocalParticipant();
+
+  const isMeetingOwner = LocalParticipant && call?.state.createdBy && LocalParticipant.userId === call.state.createdBy.id;
+
+  if(!isMeetingOwner) return null;
+
   return (
-    <div>EndCallButton</div>
+    <Button onClick={
+      async () => {await call.endCall();
+      router.push('/')
+    }} className='bg-red-500'>End Call for Everyone</Button>
   )
 }
 

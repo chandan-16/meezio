@@ -1,12 +1,11 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { avatarImages } from "@/constants";
-// import { useToast } from "./ui/use-toast";
-import { toast } from "sonner"
+import { toast } from "sonner";
 
 interface MeetingCardProps {
   title: string;
@@ -29,7 +28,7 @@ const MeetingCard = ({
   link,
   buttonText,
 }: MeetingCardProps) => {
-//   const { toast } = useToast();
+  // const { toastt } = toast();
 
   return (
     <section className="flex min-h-[258px] w-full flex-col justify-between rounded-[14px] bg-dark-1 px-5 py-8 xl:max-w-[568px]">
@@ -55,13 +54,13 @@ const MeetingCard = ({
               style={{ top: 0, left: index * 28 }}
             />
           ))}
-          <div className="flex-center absolute left-[136px] size-10 rounded-full border-[5px] border-dark-3 bg-dark-4">
+          <div className="flex-center absolute left-[136px] size-10 rounded-full border-[5px] border-gray-800 bg-gray-900">
             +5
           </div>
         </div>
         {!isPreviousMeeting && (
           <div className="flex gap-2">
-            <Button onClick={handleClick} className="rounded bg-blue-1 px-6">
+            <Button onClick={handleClick} className="rounded bg-blue-500 px-6">
               {buttonIcon1 && (
                 <Image src={buttonIcon1} alt="feature" width={20} height={20} />
               )}
@@ -70,9 +69,7 @@ const MeetingCard = ({
             <Button
               onClick={() => {
                 navigator.clipboard.writeText(link);
-                // toast({
-                //   title: "Link Copied",
-                // });
+                toast("Link Copied");
               }}
               className="bg-dark-4 px-6"
             >

@@ -1,4 +1,6 @@
+/* eslint-disable camelcase */
 "use client";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -93,14 +95,14 @@ const MeetingTypeList = () => {
         img="/icons/schedule.svg"
         title="Schedule Meeting"
         description="Plan your meeting"
-        handleClick={() => setMeetingState('isScheduleMeeting')}
+        handleClick={() => setMeetingState("isScheduleMeeting")}
         className="bg-purple-500"
       />
       <HomeCard
         img="/icons/recordings.svg"
         title="View Recordings"
         description="Meeting Recordings"
-        handleClick={() => router.push('/recordings')}
+        handleClick={() => router.push("/recordings")}
         className="bg-yellow-500"
       />
 
@@ -141,7 +143,7 @@ const MeetingTypeList = () => {
               timeIntervals={15}
               timeCaption="time"
               dateFormat="MMMM d, yyyy h:mm aa"
-              className="w-full rounded bg-gray-700 p-2 focus:outline-none "
+              className="w-full rounded bg-gray-800 p-2 focus:outline-none "
             />
           </div>
         </MeetingModal>
@@ -173,7 +175,7 @@ const MeetingTypeList = () => {
         placeholder="Meeting Link"
         className="border-none bg-gray-700 focus-visible:ring-0 focus-visible:ring-offset-0"
         onChange={(e) => setValues({ ...values, link: e.target.value })}
-      />      
+      />
 
       <MeetingModal
         isOpen={meetingState === "isInstantMeeting"}
@@ -182,8 +184,7 @@ const MeetingTypeList = () => {
         className="text-center"
         buttonText="Start Meeting"
         handleClick={createMeeting}
-        >
-      </MeetingModal>
+      ></MeetingModal>
     </section>
   );
 };

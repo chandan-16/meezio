@@ -8,6 +8,7 @@ import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk"
 import { toast } from "sonner"
 import { Textarea } from "./ui/textarea"
 import ReactDatePicker from 'react-datepicker';
+import { Input } from "./ui/input"
 
 const MeetingTypeList = () => {
     const router = useRouter()
@@ -99,7 +100,7 @@ const MeetingTypeList = () => {
     <section className='grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4'>
         <HomeCard img="/icons/add-meeting.svg" title="New Meeting" description="Start an instant meeting" handleClick ={() => setMeetingState('isInstantMeeting')} className="bg-orange-500" />
         <HomeCard img="/icons/schedule.svg" title="Schedule Meeting" description="Plan your meeting" handleClick ={() => setMeetingState('isScheduleMeeting')} className="bg-blue-500" />
-        <HomeCard img="/icons/recordings.svg" title="View Recordings" description="Check your recordings" handleClick ={() => setMeetingState('isJoiningMeeting')} className="bg-purple-500" />
+        <HomeCard img="/icons/recordings.svg" title="View Recordings" description="Check your recordings" handleClick ={() => router.push('/recordings')} className="bg-purple-500" />
         <HomeCard img="/icons/join-meeting.svg" title="Join Meeting" description="via invitation link" handleClick={() => setMeetingState('isJoiningMeeting')} className="bg-yellow-500"  />
 
         {
@@ -151,6 +152,17 @@ const MeetingTypeList = () => {
           buttonText="Start Meeting"
           handleClick={createMeeting}
           />
+
+        <MeetingModal 
+          isOpen={meetingState === 'isJoiningMeeting'} 
+          onClose={() => setMeetingState(undefined)}
+          title="Type the link here"
+          className="text-center"
+          buttonText="Join Meeting"
+          handleClick={() => router.push(values.link)}
+          > 
+          <Input placeholder="Meeting Link" className="border-none bg-gray-400 focus-visible:ring-0 focus-visible:ring-offset-0" onChange={(e) => setValues({...values, link:e.target.value})} />
+          </MeetingModal>       
     </section>
   )
 }

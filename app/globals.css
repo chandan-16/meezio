@@ -154,12 +154,12 @@
 }
 
 .glassmorphism {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 241, 241, 0.25);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
 .glassmorphism2 {
-  background: rgba(18, 17, 17, 0.25);
+  background: rgba(255, 250, 250, 0.25);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -187,12 +187,7 @@
 }
 .cl-userButtonPopoverActionButton {
   color: white;
-}
-
-.bg-hero {
-  background-image: url('/images/hero-background.png');
-}
-
+} 
 
 @layer base {
   * {

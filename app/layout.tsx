@@ -6,7 +6,7 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs'
-import '@stream-io/video-react-sdk/dist/css/style.css';
+// import '@stream-io/video-react-sdk/dist/css/style.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Toaster } from "@/components/ui/sonner"
 import './globals.css'

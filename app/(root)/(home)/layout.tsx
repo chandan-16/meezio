@@ -2,15 +2,15 @@ import React, { ReactNode } from 'react'
 
 import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
-// import { Metadata } from 'next';
+import { Metadata } from 'next';
 
-// export const metadata: Metadata = {
-//   title: "Meezio App",
-//   description: "Video Calling App ",
-//   icons: '/icons/logo.svg'
-// };
+export const metadata: Metadata = {
+  title: "MEEZIO",
+  description: "A workspace for your team, powered by Stream Chat and Clerk.",
+  icons: '/icons/logo.svg'
+};
 
-const HomeLayout = ({ children } : {children : ReactNode}) => {
+const RootLayout = ({ children }: Readonly<{children: ReactNode}>) => {
   return (
     <main className='relative'>
         <Navbar />
@@ -28,4 +28,4 @@ const HomeLayout = ({ children } : {children : ReactNode}) => {
   )
 }
 
-export default HomeLayout
+export default RootLayout
